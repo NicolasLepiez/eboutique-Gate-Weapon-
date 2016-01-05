@@ -49,6 +49,12 @@ class Controller_Utilisateur {
 			require_once($_SERVER['DOCUMENT_ROOT'].'/boutique/views/utilisateur/connexion.php');
 		}
 	}
+
+	public function deconnect()
+	{
+			session_destroy();
+			header('Location: ../boutique/index.php');
+	}
 }
 
 

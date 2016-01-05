@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/boutique/views/header.php'); ?>
 
-  <head>
-
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
-
-  </head>
-  <body>
 	<h1> Bienvenue sur la page d'inscription </h1>
 	<p> Veuillez entrer vos informations ci-dessous </p>
 	<p> Les champs noté d'une étoile sont obligatoire </p>

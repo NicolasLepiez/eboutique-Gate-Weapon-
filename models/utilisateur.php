@@ -38,8 +38,7 @@ class Model_Utilisateur {
 		$query = 'SELECT id_users, pseudo, email, mot_de_passe FROM users';
 		$resultat = $this->db->get($query);
 		return $resultat;
-	}
-		
+	}	
 
 }
 ?>

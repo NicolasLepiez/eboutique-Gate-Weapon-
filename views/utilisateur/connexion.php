@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-
-	<meta charset="utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Inscription</title>
-
-</head>
-<body>
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/boutique/views/header.php'); ?>
 	
 	<h1> JE SUIS LA CONNEXION </h1>
 	<form method='post'>
