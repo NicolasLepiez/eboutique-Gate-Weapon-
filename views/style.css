@@ -1,23 +1,226 @@
-.nav__background {
-	background-color: #010D17;
-	padding: 20px;
+
+.article__liste {
+	/*float: left;*/
 }
 
-.nav__button {
-	background-color: #5D6A74;
-	border: solid; 
+.button {
+	background-color: #02658C;
+	border-color: #000;
 	border-radius: 5px;
-	color: white;
-	font-size: 30px;
-	text-align: center;
-	
-	
+	box-shadow: 3px 3px #BFB6AE;
+	color: #F2E6DC;
+	margin-top: 10px;
+	padding: 5px;
+	padding-right: 10px;
+	padding-left: 10px;
 }
 
-.nav__button:hover {
-	color: red;
+.button:hover{
+	background-color: #024772;
+	color: #BFB6AE;
+}
+
+h1 {
+	font-family: Arial;
+}
+
+header {
+	font-family: Tahoma;
+}
+
+.footer {
+	color:#F2E6DC;
+	background-color: #02658C;
+	height: 80px;
+	margin-top: 25px;
+	position: relative;
+	bottom: 0;
+	width: 100%
+}
+
+.footer__desc--center {
+	bottom: 85px;
+	font-family: Tahoma;
+	font-size: 25px;
+	position: relative;
+	text-align:center;
+}
+
+.footer__desc--right {
+	display: inline-block;
+	position: relative;
+	left: 89%;
+	bottom: 156px;
+}
+
+.footer__image--facebook {
+	display: inline-block;
+	width: 64px;
+	height: 64px;
+	background-image:url('image/facebook_noir.png');
+	background-repeat: no-repeat;
+}
+
+.footer__image--facebook:hover {
+	background-image:url('image/facebook_hover.png');
+	background-repeat: no-repeat;
+}
+
+.footer__image--twitter {
+	display: inline-block;
+	width: 64px;
+	height: 64px;
+	background-image:url('image/twitter_noir.png');
+	background-repeat: no-repeat;
+}
+
+.footer__image--twitter:hover {
+	background-image:url('image/twitter_hover.png');
+	background-repeat: no-repeat;
+}
+.footer__image--google {
+	display: inline-block;
+	width: 64px;
+	height: 64px;
+	background-image:url('image/google-plus_noir.png');
+	background-repeat: no-repeat;
+}
+
+.footer__image--google:hover {
+	background-image:url('image/google-plus_hover.png');
+	background-repeat: no-repeat;
+}
+
+.footer__list {
+	font-family: Tahoma;
+}
+.footer__link {
+	color: #F2E6DC;
 	text-decoration: none;
 }
+
+.footer__link:hover {
+	color: #BFB6AE;
+}
+
+.footer__size {
+	width: 100%;
+	height: 80px;
+}
+
+.formulaire {
+	margin-right: 20%;
+	margin-left: 20%;
+	text-align: center;
+}
+
+.image {
+	height: 250px;
+	width: 250px;
+}
+
+input {
+	border-color: #024772;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 10px 10px;
+}
+
+label {
+	
+}
+
+/*main {
+	min-height:835px;
+}
+
+@media (max-height:730px) {
+	main {
+		min-height: 1024px;
+	}
+}*/
+/* MENU DEROULANT HEADER */
+
+.menu {
+	background-color: #02658C;
+	display: block;
+	list-style-type: none;
+	margin: 0;
+	overflow: visible;
+	padding: 0;
+}
+/* les a href */
+
+.menu a{
+	color:#F2E6DC;
+	display:block;
+	padding:8px 32px;
+	text-decoration:none;
+}
+
+.menu li{
+	display:inline-block;
+	position:relative;
+}
+
+.menu li:hover li a{
+	background-color:#02658C;
+	color:#F2E6DC;
+}
+
+/* Permet de surligner le texte de chaque element séparemment quand la souris passe dessus */
+
+.menu li:hover, .menu li li:hover a{
+	background-color:#024772;
+	color:#BFB6AE;
+
+}
+
+/* Permet de surligné toute la liste quand la souris passe dessus */
+
+.menu li:hover ul{
+	background-color:#024772;
+	max-height:50em;
+}
+
+.menu ul{
+	position:absolute;
+	max-height:0;
+	left: 0;
+	overflow:hidden;
+	right: 0;
+	transition-duration:0s;
+	z-index: 1000;
+}
+.menu, .menu ul{
+	list-style:none;
+	padding:0;
+	margin:0;
+	text-align:center;
+}
+
+.menu ul a{
+	padding:8px 3px;
+
+}
+.menu ul li{
+	display:inherit;
+}
+
+.menu__title {
+	color: #F2E6DC;
+	padding: 0px;
+	text-transform: uppercase;
+}
+
+/* ------------------ */
+
+
+
+
+
+
+
 
 
 

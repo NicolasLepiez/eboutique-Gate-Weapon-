@@ -9,16 +9,31 @@ class Model_Article {
 		
 	}
 
-	public function listArticle() 
+	public function listArticle($precision) 
 	{
-		$query = "SELECT * FROM users;";
+		$query = 'SELECT * FROM articles'.$precision.';';
 		$resultat = $this->db->get($query);
 		return $resultat;
 	}
 
-	public function loadArticle()
+	public function getListLicence()
 	{
-		return "chargement de l'article ".$id;
+		$query = 'SELECT * FROM licences;';
+		$resultat = $this->db->get($query);
+		return $resultat;
+	}
+
+	public function getListCategorie()
+	{
+		$query = 'SELECT * FROM categories;';
+		$resultat = $this->db->get($query);
+		return $resultat;
+	}
+
+	public function loadArticle($id)
+	{
+		$query = 'SELECT * FROM articles WHERE id_article='.$id.';';
+		$resultat = $this->db->get($query);
+		return $resultat;
 	}
 }
-?>

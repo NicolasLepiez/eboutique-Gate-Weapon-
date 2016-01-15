@@ -11,9 +11,8 @@ class Model_Utilisateur {
 		
 	}
 
-	public function addUsers($nom, $prenom, $pseudo, $email, $age, $mot_de_passe, $numero_rue, $rue, $ville, $code_postal, $error)
+	public function addUsers($nom, $prenom, $pseudo, $email, $age, $mot_de_passe, $numero_rue, $rue, $ville, $code_postal)
 	{
-		require_once($_SERVER['DOCUMENT_ROOT'].'/boutique/controllers/utilisateur.php');
 		$query = 'INSERT INTO users (nom, prenom, pseudo, email, age, mot_de_passe, numero_rue, rue, ville, code_postal) VALUES (:nom, :prenom, :pseudo, :email, :age, :mot_de_passe, :numero_rue, :rue, :ville, :code_postal);';
 		$table = array(
 				'nom' => $nom,
@@ -28,17 +27,35 @@ class Model_Utilisateur {
 				'code_postal' => $code_postal
 			);
 		$this->db->execute($query, $table);
-		?>
-		<p><?php echo $error ?></p>
-		<?php
 	}
 
 	public function checkUsers()
 	{
-		$query = 'SELECT id_users, pseudo, email, mot_de_passe FROM users';
+		$query = 'SELECT id_users, pseudo, admin, email, mot_de_passe FROM users';
+		$resultat = $this->db->get($query);
+		return $resultat;
+	}
+
+	public function checkProfil()
+	{
+		$query = 'SELECT * FROM users WHERE id_users='.$_SESSION['id_users'].';';
+		$resultat = $this->db->get($query);
+		return $resultat;
+	}
+
+	public function checkPseudo($pseudo)
+	{
+		$query = 'SELECT EXISTS(SELECT id_users FROM users WHERE pseudo=\''.$pseudo.'\');';
 		$resultat = $this->db->get($query);
 		return $resultat;
 	}	
+
+	public function checkAdmin()
+	{
+		$query = 'SELECT admin FROM is_admin';
+		$resultat = $this->db->get($query);
+		return $resultat;
+	}
 
 }
 ?>
