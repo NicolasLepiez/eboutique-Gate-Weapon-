@@ -26,20 +26,24 @@ h1 {
 
 header {
 	font-family: Tahoma;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	margin-bottom: 20px;
 }
 
 .footer {
 	color:#F2E6DC;
 	background-color: #02658C;
-	height: 80px;
-	margin-top: 25px;
-	position: relative;
-	bottom: 0;
-	width: 100%
+	height: 90px;
+	margin-top: 25px; 
+	width: 100%;
 }
 
 .footer__desc--center {
-	bottom: 85px;
+	display: inline-block;
+	bottom: 105px;
+	left: 400px;
 	font-family: Tahoma;
 	font-size: 25px;
 	position: relative;
@@ -49,8 +53,8 @@ header {
 .footer__desc--right {
 	display: inline-block;
 	position: relative;
-	left: 89%;
-	bottom: 156px;
+	left: 33%;
+	bottom: 80px;
 }
 
 .footer__image--facebook {
@@ -93,6 +97,7 @@ header {
 
 .footer__list {
 	font-family: Tahoma;
+
 }
 .footer__link {
 	color: #F2E6DC;
@@ -101,6 +106,7 @@ header {
 
 .footer__link:hover {
 	color: #BFB6AE;
+	text-decoration:none;
 }
 
 .footer__size {
@@ -140,6 +146,9 @@ label {
 	}
 }*/
 /* MENU DEROULANT HEADER */
+main {
+	margin-top:50px;
+}
 
 .menu {
 	background-color: #02658C;

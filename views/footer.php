@@ -8,8 +8,10 @@
 				<li>Infos Légales :</li>
 
 				<ul>
+
+					<li> <a href='#' class='footer__link'> Mentions légales </a> </li>
 					<li><a href='#' class='footer__link'> CGV </a> </li>
-					<li> <a href='#' class='footer__link'> Mention Légale </a> </li>
+
 				</ul>
 			</ul>
 			<p class='footer__desc--center'> Garantie satisfait ou remboursé ! Livraison sous 48 - 72H (Dans la limite des stocks disponible)</p>

@@ -10,4 +10,5 @@
 		<label for='connect'> connexion </label>
 		<input type='submit' name='connect' class='button'>
 	</form>
+	<?= $error; ?>
 </main>

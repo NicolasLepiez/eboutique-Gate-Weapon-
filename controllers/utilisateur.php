@@ -53,21 +53,33 @@ class Controller_Utilisateur {
 
 	public function connect()
 	{
+		$error = '';
 		if(!empty($_POST)) {
+			$pseudo = htmlspecialchars($_POST['pseudo']);
+			$password = htmlspecialchars($_POST['password']);
 			require_once($_SERVER['DOCUMENT_ROOT'].'/boutique/models/utilisateur.php');
-			$connect = new Model_Utilisateur();
-			$doConnect = $connect->checkUsers();
-			foreach ($doConnect as $connect) {
-				if ($connect['pseudo'] == $_POST['pseudo'] && $connect['mot_de_passe'] == $_POST['password']) {
-					$_SESSION['id_users'] = $connect['id_users'];
-					$_SESSION['email'] = $connect['email'];
-					$_SESSION['admin'] = $connect['admin'];
-				}
-			}
-			if($_SESSION['admin'] === 1) {
-				header('Location: ../boutique/index.php?c=article&a=add');
+			$checkPseudo = new Model_Utilisateur();
+			$doCheckPseudo = $checkPseudo->checkPseudo($pseudo);
+			var_dump($doCheckPseudo);
+			if ($doCheckPseudo[0][0] == 1) {
+				$checkPassword = new Model_Utilisateur();
+				$doCheckPassword = $checkPassword->checkPassword($password);
+				var_dump($doCheckPassword);
+				if ($doCheckPassword[0][0] == 1) {
+					$info = new Model_Utilisateur();
+					$infoUser = $info->getUserInfo($pseudo);
+					foreach ($infoUser as $users) {
+						$_SESSION['id_users'] = $users['id_users'];
+						$_SESSION['admin'] = $users['admin'];
+						header('Location: ../boutique/index.php?c=articles&a=list');
+					}
+				} else {
+					$error = 'Une erreur est survenu : mot de passe incorrect !';
+					require_once($_SERVER['DOCUMENT_ROOT'].'/boutique/views/utilisateur/connexion.php');
+				}	
 			} else {
-				header('Location: ../boutique/index.php?c=article&a=list');
+				$error = 'Une erreur est survenu : Pseudo incorrect !';
+				require_once($_SERVER['DOCUMENT_ROOT'].'/boutique/views/utilisateur/connexion.php');
 			}
 		} else {
 			require_once($_SERVER['DOCUMENT_ROOT'].'/boutique/views/utilisateur/connexion.php');

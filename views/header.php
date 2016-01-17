@@ -61,7 +61,11 @@
 						</li>
 
 						<?php if(isset($_SESSION['id_users'])) { 
+								if(isset($_SESSION['admin']) && $_SESSION['admin'] == 0) {
 							echo "<li class='col-sm-1'> <a href='#'> UTILISATEUR </a>";
+						} else {
+							echo "<li class='col-sm-2'> <a href='#'> UTILISATEUR </a>";
+						}
 							?>
 								<ul>
 									<li> <a href='index.php?c=profil&a=view'>Profil</a></li>
@@ -79,13 +83,22 @@
 							</ul>
 						</li>					
 					
-
-						<li class='col-sm-1'> 
-							<a href='#'>PANIER</a>
+						<?php if(isset($_SESSION['admin']) && $_SESSION['admin'] == 0) {
+						echo ' <li class="col-sm-1"> 
+							<a href="#">PANIER</a>
 							<ul>
 								<li></li>
-							</ul>
-
+							</ul>';
+						}
+						?>
+						 <?php if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+							echo '<li class="col-sm-2"><a href="#"> ADMINISTRATION </a>
+									<ul>
+										<li></li>
+										<li></li>
+									</ul>
+								</li>';
+						} else { ?> 
 						<li class='col-sm-2'> 
 							<a href='#'>CONTACT</a>
 							<ul>
@@ -93,6 +106,7 @@
 								<li></li>
 							</ul>
 						</li>
+						<?php } ?>
 					</ul>
 				</div>
 			</div>

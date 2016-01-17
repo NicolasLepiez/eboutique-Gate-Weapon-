@@ -29,16 +29,9 @@ class Model_Utilisateur {
 		$this->db->execute($query, $table);
 	}
 
-	public function checkUsers()
+	public function checkPassword($password)
 	{
-		$query = 'SELECT id_users, pseudo, admin, email, mot_de_passe FROM users';
-		$resultat = $this->db->get($query);
-		return $resultat;
-	}
-
-	public function checkProfil()
-	{
-		$query = 'SELECT * FROM users WHERE id_users='.$_SESSION['id_users'].';';
+		$query = 'SELECT EXISTS(SELECT id_users FROM users WHERE mot_de_passe=\''.$password.'\');';
 		$resultat = $this->db->get($query);
 		return $resultat;
 	}
@@ -48,7 +41,22 @@ class Model_Utilisateur {
 		$query = 'SELECT EXISTS(SELECT id_users FROM users WHERE pseudo=\''.$pseudo.'\');';
 		$resultat = $this->db->get($query);
 		return $resultat;
+	}
+
+	public function getUserInfo($pseudo)
+	{
+		$query = 'SELECT id_users, admin FROM users WHERE pseudo=\''.$pseudo.'\';';
+		$resultat = $this->db->get($query);
+		return $resultat;
 	}	
+
+	public function checkProfil()
+	{
+		$query = 'SELECT * FROM users WHERE id_users='.$_SESSION['id_users'].';';
+		$resultat = $this->db->get($query);
+		return $resultat;
+	}
+
 
 	public function checkAdmin()
 	{
