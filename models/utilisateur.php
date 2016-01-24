@@ -11,6 +11,13 @@ class Model_Utilisateur {
 		
 	}
 
+	public function listUsers($precision) 
+	{
+		$query = 'SELECT * FROM users'.$precision.';';
+		$resultat = $this->db->get($query);
+		return $resultat;
+	}
+
 	public function addUsers($nom, $prenom, $pseudo, $email, $age, $mot_de_passe, $numero_rue, $rue, $ville, $code_postal)
 	{
 		$query = 'INSERT INTO users (nom, prenom, pseudo, email, age, mot_de_passe, numero_rue, rue, ville, code_postal) VALUES (:nom, :prenom, :pseudo, :email, :age, :mot_de_passe, :numero_rue, :rue, :ville, :code_postal);';
@@ -45,7 +52,14 @@ class Model_Utilisateur {
 
 	public function getUserInfo($pseudo)
 	{
-		$query = 'SELECT id_users, admin FROM users WHERE pseudo=\''.$pseudo.'\';';
+		$query = 'SELECT id_users, pseudo, email, admin FROM users WHERE pseudo=\''.$pseudo.'\';';
+		$resultat = $this->db->get($query);
+		return $resultat;
+	}
+
+	public function listAllUsers() 
+	{
+		$query = 'SELECT * FROM `users`;';
 		$resultat = $this->db->get($query);
 		return $resultat;
 	}	
@@ -65,5 +79,12 @@ class Model_Utilisateur {
 		return $resultat;
 	}
 
+	public function suppUser()
+	{
+		$query = 'DELETE FROM users WHERE id_users ='.$_GET['id'].';';
+		$table = array();
+		$resultat = $this->db->execute($query,$table);
+		return $resultat;
+	}
 }
 ?>

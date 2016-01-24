@@ -9,9 +9,9 @@ class Model_Profil {
 		
 	}
 
-	public function getInfo()
+	public function getInfo($id)
 	{
-		$query = 'SELECT * FROM users WHERE id_users ='.$_SESSION['id_users'].';';
+		$query = 'SELECT * FROM users WHERE id_users ='.$id.';';
 		$resultat = $this->db->get($query);
 		return $resultat;
 	}

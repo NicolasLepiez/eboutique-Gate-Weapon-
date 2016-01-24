@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang='fr'>
 
@@ -10,6 +9,7 @@
 	<title>Gate-Weapon</title>
 	<link rel='stylesheet' href='views/bootstrap.css'>
 	<link rel='stylesheet' href='views/style.css'>
+	<link rel="stylesheet" href="views/owl.carousel.css">
 
 </head>
 <body>
@@ -20,8 +20,8 @@
 				<div>
 
 					<ul class="menu col-xs-12 ">
-						<li class='col-sm-2 menu__title'>
-							<a href='index.php' >Gate-Weapon</a>
+						<li class='col-sm-2'>
+							<a href='index.php' >GATE-WEAPON</a>
 						</li>
 
 						<li class='col-sm-2'> 
@@ -37,7 +37,7 @@
 									$listLicence = $controller_licence->listLicence();
 									
 									foreach($listLicence as $licence) {
-										echo '<li><a href="index.php?c=articles&id='.$licence['id_licence'].'&a=list&t=licence">'.$licence['nom'].'</a></li>';
+										echo '<li><a href="index.php?c=articles&id='.$licence['id_licence'].'&a=list&t=licence"> <img src="'.$licence['imageURL'].'" class="header__image"> '. $licence['nom'].' <img src="'.$licence['imageURL'].'" class="header__image"> </a></li>';
 									}
 
 								?>
@@ -53,7 +53,7 @@
 									$listCategorie = $controller_categorie->listCategorie();
 									
 									foreach($listCategorie as $categorie) {
-										echo '<li><a href="index.php?c=articles&id='.$categorie['id_categorie'].'&a=list&t=categorie">'.$categorie['nom'].'</a></li>';
+										echo '<li><a href="index.php?c=articles&id='.$categorie['id_categorie'].'&a=list&t=categorie"> <img src="'.$categorie['imageURL'].'" class="header__image"> '.$categorie['nom'].' <img src="'.$categorie['imageURL'].'" class="header__image"> </a></li>';
 									}
 
 								?>
@@ -69,6 +69,7 @@
 							?>
 								<ul>
 									<li> <a href='index.php?c=profil&a=view'>Profil</a></li>
+									<li> <a href='index.php?c=users&a=view'>Liste Utilisateurs</a></li>
 									<li> <a href='index.php?c=deconnexion&a=out'>Deconnexion</a></li>
 								</ul>
 							</li>
@@ -92,7 +93,7 @@
 						}
 						?>
 						 <?php if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
-							echo '<li class="col-sm-2"><a href="#"> ADMINISTRATION </a>
+							echo '<li class="col-sm-2"><a href="admin/index.php"> ADMINISTRATION </a>
 									<ul>
 										<li></li>
 										<li></li>
@@ -100,11 +101,7 @@
 								</li>';
 						} else { ?> 
 						<li class='col-sm-2'> 
-							<a href='#'>CONTACT</a>
-							<ul>
-								<li></li>
-								<li></li>
-							</ul>
+							<a href='index.php?c=contact&a=send'>CONTACT</a>
 						</li>
 						<?php } ?>
 					</ul>
@@ -113,4 +110,4 @@
 			
 		</div>
 	</header>
-	<main>
+	<div class='bloc_principal'>

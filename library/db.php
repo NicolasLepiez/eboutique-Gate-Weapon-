@@ -7,6 +7,7 @@ class DB {
 	private function __construct() 
 	{
 		$this->connexionBDD = new PDO("mysql:host=localhost;dbname=eboutique", "root", "");
+		$this->connexionBDD->exec('SET NAMES UTF8');
 
 	}
 

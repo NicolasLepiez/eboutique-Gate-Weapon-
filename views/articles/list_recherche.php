@@ -1,4 +1,3 @@
-
 <div class='container-fluid container__margin'>
 	<div class='row'>
 
@@ -9,21 +8,23 @@
 				<p class='aside__title'> Effectuez une recherche par nom ! </p>
 				<form action='index.php?c=articles&a=recherche' method='post'>
 					<input type='text' name='recherche' class='recherche' placeholder='votre recherche'> <br>
-					<input type='submit' class='button' name='rechercher' value='rechercher nom'>
+					<input type='submit' class='button' name='rechercher' value='rechercher'>
 				</form>
 
 				<?php 
 				?>
 
-		</aside>
+		</aside>		
 
-	<main class='col-xs-12 col-md-9 main'>
-			<h1> <b> Tous les produits </b> </h1>
+		<main class='col-xs-12 col-md-8 main'>
+			<h1> <b> Résultat de la recherche : "<?= $recherche ?>" </b> </h1>
 			<?php 
-				
 				//var_dump($listArticle);
-				foreach($listArticle as $article) {
-			 ?>
+				if (!$error != '') {
+
+
+					foreach($listArticle as $article) {
+				 ?>
 			<div class='article__liste col-md-4'>
 				<?php echo '<a href="index.php?c=articles&a=view&id='.$article['id_article'].'" class="article__link"> <img src="'.$article['imageURL'].'"   alt="'.$article['nom'].'" class="image"> </a> <br>';?>
 				<div class='article__link--text'>
@@ -32,15 +33,13 @@
 				<button class='article__button'> Ajouter au panier </button>
 				
 			</div>
-		<?php
+				<?php
+					}
+				} else {
+					echo $error;
 				}
-				?>
+					?>
+
 		</main>
-
-		
-
-		
-		
-		
 	</div>
 </div>

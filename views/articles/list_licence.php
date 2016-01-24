@@ -16,10 +16,17 @@
 				?>
 
 		</aside>
-
 	<main class='col-xs-12 col-md-9 main'>
-			<h1> <b> Tous les produits </b> </h1>
 			<?php 
+				require_once($_SERVER['DOCUMENT_ROOT']).'boutique/controllers/article.php';
+				$controller_licence = new Controller_Article();
+				$listLicence = $controller_licence->listLicence();
+				foreach ($listLicence as $licence) {
+					if ($licence['id_licence'] == $_GET['id']) {
+						echo '<h1> <b> <img src="'.$licence['imageURL'].'" class="article__image"> Produits '.$licence['nom'].' <img src="'.$licence['imageURL'].'" class="article__image"> </b></h1>';
+					}
+					
+				}
 				
 				//var_dump($listArticle);
 				foreach($listArticle as $article) {
@@ -32,7 +39,7 @@
 				<button class='article__button'> Ajouter au panier </button>
 				
 			</div>
-		<?php
+			<?php
 				}
 				?>
 		</main>

@@ -3,17 +3,19 @@ require_once($_SERVER['DOCUMENT_ROOT']).'/boutique/models/utilisateur.php';
 require_once($_SERVER['DOCUMENT_ROOT'].'/boutique/models/profil.php');
 class Controller_Profil {
 
-	public function showInfo()
+	public function showInfo($id)
 	{
 		$profil = new Model_Profil();
-		$info_profil = $profil->getInfo();
-		require_once($_SERVER['DOCUMENT_ROOT']).'/boutique/views/profil.php';
+		$info_profil = $profil->getInfo($id);
+		return $info_profil;
+		
 	}
 
 	public function changeInfo()
 	{
 		if(empty($_POST)) {
-			require_once($_SERVER['DOCUMENT_ROOT']).'/boutique/views/profil_modify.php';
+			$message = '';
+			require_once($_SERVER['DOCUMENT_ROOT']).'/boutique/views/utilisateur/profil_modify.php';
 		} else {
 			$image_profil = htmlspecialchars($_POST['image_profil']);
 			$nom = htmlspecialchars($_POST['name']);
@@ -26,7 +28,7 @@ class Controller_Profil {
 
 			$user_info = new Model_Utilisateur();
 			$user_check = $user_info->checkProfil();
-			var_dump($user_check);
+			//var_dump($user_check);
 
 			if (empty($image_profil)) {
 				$image_profil = $user_check[0]['image_profil'];
@@ -56,7 +58,8 @@ class Controller_Profil {
 
 			$listChange = new Model_Profil();
 			$change = $listChange->changeInfo($image_profil, $nom, $prenom, $email, $numero_rue, $rue, $ville, $code_postal);
-			require_once($_SERVER['DOCUMENT_ROOT']).'/boutique/views/profil_reussite.php';
+			$message = 'Votre profil à bien été modifié';
+			require_once($_SERVER['DOCUMENT_ROOT']).'/boutique/views/utilisateur/profil_modify.php';
 		}
 	}
 

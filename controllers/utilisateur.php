@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once($_SERVER['DOCUMENT_ROOT'].'/boutique/models/utilisateur.php');
 
 class Controller_Utilisateur {
@@ -6,7 +7,7 @@ class Controller_Utilisateur {
 	public function newUsers()
 	{
 		if (empty($_POST)) {
-
+			$error = '';
 			require_once($_SERVER['DOCUMENT_ROOT'].'/boutique/views/utilisateur/inscription.php');
 
 		} else {
@@ -32,19 +33,20 @@ class Controller_Utilisateur {
 				$isPseudo[0][0] == 1
 				 ){
 					if ($mot_de_passe != $check_mot_de_passe) {
-						$error = 'Les mots de passes ne correspondent pas !';
-						require_once($_SERVER['DOCUMENT_ROOT']).'/boutique/views/utilisateur/erreur_inscription.php';
+						$error = 'Les mot de passes ne correspondent pas !';
+						require_once($_SERVER['DOCUMENT_ROOT']).'/boutique/views/utilisateur/inscription.php';
 
 					} elseif (strlen($mot_de_passe) < 4) {
-						$error = 'Votre mots de passe est trop court !';
-						require_once($_SERVER['DOCUMENT_ROOT']).'/boutique/views/utilisateur/erreur_inscription.php';
+						$error = 'Votre mot de passe est trop court !';
+						require_once($_SERVER['DOCUMENT_ROOT']).'/boutique/views/utilisateur/inscription.php';
 
 					} elseif ($isPseudo[0][0] == 1) {
 						$error = 'Ce pseudo est deja utilisé, veuillez en choisir un autre';
-						require_once($_SERVER['DOCUMENT_ROOT']).'/boutique/views/utilisateur/erreur_inscription.php';
+						require_once($_SERVER['DOCUMENT_ROOT']).'/boutique/views/utilisateur/inscription.php';
 					}
 				
 			} else {
+
 				$users = new Model_Utilisateur();
 				$newUser = $users->addUsers($nom, $prenom, $pseudo, $email, $age, $mot_de_passe, $numero_rue, $rue, $ville, $code_postal);
 			}
@@ -70,8 +72,10 @@ class Controller_Utilisateur {
 					$infoUser = $info->getUserInfo($pseudo);
 					foreach ($infoUser as $users) {
 						$_SESSION['id_users'] = $users['id_users'];
+						$_SESSION['email'] = $users['email'];
+						$_SESSION['pseudo'] = $users['pseudo'];
 						$_SESSION['admin'] = $users['admin'];
-						header('Location: ../boutique/index.php?c=articles&a=list');
+						header('Location: ../boutique/index.php');
 					}
 				} else {
 					$error = 'Une erreur est survenu : mot de passe incorrect !';
@@ -93,14 +97,27 @@ class Controller_Utilisateur {
 			session_destroy();
 			header('Location: ../boutique/index.php');
 	}
+
+	public function listUsersAdmin() 
+	{
+		$users = new Model_Utilisateur();
+		$listUsers = $users->listAllUsers();
+		require_once($_SERVER['DOCUMENT_ROOT']).'boutique/admin/views/list_users.php';
+		
+	}
+
+	public function listAllUsers() 
+	{
+		$users = new Model_Utilisateur();
+		$listUsers = $users->listAllUsers();
+		require_once($_SERVER['DOCUMENT_ROOT']).'boutique/views/utilisateur/list_users.php';
+		
+	}
+
+	public function suppUser()
+	{
+		$supp = new Model_Utilisateur();
+		$suppression = $supp->suppUser();
+		require_once($_SERVER['DOCUMENT_ROOT']).'boutique/admin/views/supp.php';
+	}
 }
-
-
-
-
-
-
-
-
-
-?>
