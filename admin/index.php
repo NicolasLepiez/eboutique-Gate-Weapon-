@@ -36,7 +36,8 @@ if ($controller == '' && $action == '') {
 } elseif ($controller == 'admin' && $action == 'users') {
 	require_once($_SERVER['DOCUMENT_ROOT']).'boutique/controllers/utilisateur.php';
 	$users = new Controller_Utilisateur();
-	$users->listUsersAdmin();
+	$listUsers = $users->listUsersAdmin();
+	require_once($_SERVER['DOCUMENT_ROOT']).'boutique/admin/views/list_users.php';
 
 } elseif ($controller == 'admin' && $action == 'modify') {
 	require_once($_SERVER['DOCUMENT_ROOT']).'boutique/controllers/article.php';
@@ -53,6 +54,13 @@ if ($controller == '' && $action == '') {
 	require_once($_SERVER['DOCUMENT_ROOT']).'boutique/controllers/utilisateur.php';
 	$supp = new Controller_Utilisateur();
 	$supp->suppUser();
+	
+} elseif ($controller == 'admin' && $action == 'commande') {
+	require_once($_SERVER['DOCUMENT_ROOT']).'boutique/controllers/commande.php';
+	
+	$controller_commande = new Controller_Commande();
+	$controller_commande->showBilletAdmin();
+	
 	
 }
 

@@ -28,7 +28,7 @@
 									<td>'.$list[6].'</td>
 									<td>'.$list[7].'</td>
 									<td>'.$list[8].'</td>
-									<td> <a href="index.php?c=admin&a=modify&id='.$list['id_article'].'"> Modifier</a> / <a href="index.php?c=admin&a=supparticle&id='.$list['id_article'].'"> Supprimer </a></td>
+									<td> <a href="index.php?c=admin&a=modify&id='.$list['id_article'].'" class="table__link"> Modifier</a> / <a href="index.php?c=admin&a=supparticle&id='.$list['id_article'].'" class="table__link"> Supprimer </a></td>
 								</tr>'; ?>
 							
 					<?php } ?>

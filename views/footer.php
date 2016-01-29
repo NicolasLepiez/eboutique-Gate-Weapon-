@@ -5,14 +5,14 @@
 				<div class='footer__size'>
 					<div class='col-md-2'>
 						<ul class='footer__list' >
-							<li ><a href='index.php?c=about&a=view' class='footer__link'>A PROPOS</a></li>
+							<li ><a href='about' class='footer__link'>A PROPOS</a></li>
 						
 							<li>Infos Légales :</li>
 
 							<ul>
 
-								<li> <a href='index.php?c=mention&a=view' class='footer__link'> Mentions légales </a> </li>
-								<li><a href='index.php?c=gcv&a=view' class='footer__link'> CGV </a> </li>
+								<li> <a href='mention-legale' class='footer__link'> Mentions légales </a> </li>
+								<li><a href='gcv' class='footer__link'> CGV </a> </li>
 
 							</ul>
 						</ul>

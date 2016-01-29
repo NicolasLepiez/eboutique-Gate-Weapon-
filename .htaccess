@@ -1,7 +1,0 @@
-Options +FollowSymlinks
-
-php_value session.auto_start 1
-RewriteEngine on
-RewriteRule ^home$ index.php [L]
-
-RewriteRule ^user/profil/([0-9]+)$ index.php?c=user&a=profil&id=$1 [L]

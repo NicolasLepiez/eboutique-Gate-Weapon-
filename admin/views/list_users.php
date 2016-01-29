@@ -38,6 +38,7 @@
 						if (empty($_list['prenom'])) {
 							$list['prenom'] = 'Non défini';
 						}
+						$id = $list['id_users']-1;
 
 						?> 
 						<?= '<tr>
@@ -50,7 +51,8 @@
 								<td>'.$list['age'].'</td>
 								<td>'.$list['numero_rue'].' '.$list['rue'].'</td>
 								<td>'.$list['code_postal'].' '.$list['ville'].'</td>
-								<td> <a href="index.php?c=admin&a=suppuser&id='.$list['id_users'].'"> Supprimer </a>
+
+								<td> <a href="index.php?c=admin&a=commande&id='.$id.'" class="table__link">Voir commandes </a> /<a href="index.php?c=admin&a=suppuser&id='.$id.'" class="table__link"> Supprimer </a>
 
 							</tr>'; ?>
 					<?php

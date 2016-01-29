@@ -13,9 +13,8 @@
 		<main class='col-xs-12 col-md-9 main main__description'>
 			<div class='row'>
 			<?php
-				var_dump($articleDetails);
 				echo '<h1> <b>'.$articleDetails[0][0].'</b></h1>';
-				echo '<img src="'.$articleDetails[0]['imageURL'].'" class="col-md-6" alt="'.$articleDetails[0]['nom'].'" class="image">';
+				echo '<img src="'.$articleDetails[0]['imageURL'].'" class="col-md-6 img-responsive" alt="'.$articleDetails[0]['nom'].'" class="image">';
 				echo '<h2 class="artilce__description--titre"> Description : </h2> ';
 			?>
 				<div class='col-md-6 article__description--description'>
@@ -25,12 +24,28 @@
 					echo '<p> Categorie : '.$articleDetails[0][6].'</p>';
 					echo '<p> Sous Categorie : '.$articleDetails[0][7].'</p>';
 				?>
-				</div>
+				
 			<?php
 				echo '<h2 class="article__description--prix"> Prix : '.$articleDetails[0]['prix'].'€ </h2>';
-				echo '<h2 class="article__description--quantite"> Quantite : '.$articleDetails[0]['quantite'].'</h2>';
+				if ($articleDetails[0]['quantite'] == 0) {
+					echo '<h2 class="article__description--quantite"> Quantite : STOCK INDISPONIBLE </h2>';
+				
+				} else {
+					echo '<h2 class="article__description--quantite"> Quantite : '.$articleDetails[0]['quantite'].'</h2>';
+				}
 			?>
-			<button class='article__button article__button--description'> Ajouter au panier </button>
+			<?php if ($articleDetails[0]['quantite'] > 0) {
+				echo '<form method="post" class="form-inline">
+					<div class="form-group">
+						<label for="quantite"> Quantité que vous souhaitez commander : </label>
+						<input type="number" class="form-control" name="quantite">
+					</div>';
+				echo '<input type="submit" name="panier" value="Ajouter au panier" class="article__button article__button--description">';
+			}
+				?>
+			</form>
+			</div>
+		
 			</div>
 
 			<h2> Commentaires </h2>

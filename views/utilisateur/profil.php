@@ -2,16 +2,20 @@
 	<div class='row'>
 
 		<aside class='col-xs-12 col-md-3 aside__margin'>
-			<ul>
+			<ul class='aside__list'> 
 				<li>
-					<a href='index.php?c=profil&a=view'> PROFIL </a>
+					<a href='index.php?c=profil&a=view' class='aside__link'>MON PROFIL </a>
 				</li>
 				<li>
-					<a href='#'> COMMANDE </a>
+					<a href='index.php?c=commande&a=view' class='aside__link'>MES COMMANDES </a>
 				</li>
-				<li>
-					<a href='#'> PANIER </a>
-				</li>
+				<?php 
+				if ($_SESSION['admin'] == 0) {
+					echo '<li>
+						<a href="index.php?c=panier&a=show" class="aside__link">MON PANIER </a>
+					</li>';
+				}
+				?>
 			</ul>
 
 		</aside>

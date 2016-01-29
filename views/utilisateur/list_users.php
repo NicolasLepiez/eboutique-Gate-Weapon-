@@ -28,7 +28,7 @@
 								<td>'.$list['pseudo'].'</td>
 								<td>'.$is_admin.'</td>
 								<td>'.$list['email'].'</td>
-								<td> <a href="index.php?c=users&a=particular&id='.$list['id_users'].'"> Voir profil </a>
+								<td> <a href="index.php?c=users&a=particular&id='.$list['id_users'].'" class="table__link"> Voir profil </a>
 
 							</tr>'; ?>
 					<?php

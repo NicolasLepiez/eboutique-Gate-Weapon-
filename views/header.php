@@ -21,7 +21,7 @@
 
 					<ul class="menu col-xs-12 ">
 						<li class='col-sm-2'>
-							<a href='index.php' >GATE-WEAPON</a>
+							<a href='home' >GATE-WEAPON</a>
 						</li>
 
 						<li class='col-sm-2'> 
@@ -37,7 +37,7 @@
 									$listLicence = $controller_licence->listLicence();
 									
 									foreach($listLicence as $licence) {
-										echo '<li><a href="index.php?c=articles&id='.$licence['id_licence'].'&a=list&t=licence"> <img src="'.$licence['imageURL'].'" class="header__image"> '. $licence['nom'].' <img src="'.$licence['imageURL'].'" class="header__image"> </a></li>';
+										echo '<li><a href="index.php?c=articles&id='.$licence['id_licence'].'&a=list&t=licence"> <img src="'.$licence['imageURL'].'" class="header__image">'.$licence['nom'].'<img src="'.$licence['imageURL'].'" class="header__image"> </a></li>';
 									}
 
 								?>
@@ -75,18 +75,18 @@
 							</li>
 						<?php
 						}else {
-							echo "<li class='col-sm-1'> <a href='index.php?c=connexion&a=in'>CONNEXION</a>";
+							echo "<li class='col-sm-2'> <a href='connect'>CONNEXION</a>";
 						}
 						?>
 							<ul>
-								<li> <a href= 'index.php?c=connexion&a=in'> Connexion </a> </li>
-								<li> <a href= 'index.php?c=inscription&a=add'> Inscription </a> </li>
+								<li> <a href= 'connect'> Connexion </a> </li>
+								<li> <a href= 'signin'> Inscription </a> </li>
 							</ul>
 						</li>					
 					
 						<?php if(isset($_SESSION['admin']) && $_SESSION['admin'] == 0) {
 						echo ' <li class="col-sm-1"> 
-							<a href="#">PANIER</a>
+							<a href="index.php?c=panier&a=show">PANIER</a>
 							<ul>
 								<li></li>
 							</ul>';
@@ -101,7 +101,7 @@
 								</li>';
 						} else { ?> 
 						<li class='col-sm-2'> 
-							<a href='index.php?c=contact&a=send'>CONTACT</a>
+							<a href='contact'>CONTACT</a>
 						</li>
 						<?php } ?>
 					</ul>

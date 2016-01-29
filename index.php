@@ -1,4 +1,4 @@
-<?php 
+<?php session_start();
 $controller = '';
 $action = '';
 $type = '';
@@ -28,7 +28,7 @@ if($controller == '' && $action == '') {
 } elseif ($controller == 'articles' && $action == 'list' && $type == '') {
 	require_once($_SERVER['DOCUMENT_ROOT']).'boutique/controllers/article.php';
 	$controller_article = new Controller_Article();
-	$controller_article->listArticle();
+	$controller_article->listArticle();	
 	require_once($_SERVER['DOCUMENT_ROOT'].'boutique/views/articles/list.php');
 
 } elseif ($controller == 'articles' && $action == 'list' && $type == 'categorie') {
@@ -41,10 +41,12 @@ if($controller == '' && $action == '') {
 	$controller_articleLi = new Controller_Article();
 	$controller_articleLi->listArticleByLicence();
 
+
 } elseif ($controller == 'articles' && $action == 'recherche') {
 	require_once($_SERVER['DOCUMENT_ROOT']).'boutique/controllers/recherche.php';
 	$controller_recherche_precise = new Controller_Recherche();
 	$controller_recherche_precise->recherchePrecise();
+
 
 } elseif ($controller == "articles" && $action == "view") {
 	if(empty($_GET['id'])) {
@@ -53,11 +55,14 @@ if($controller == '' && $action == '') {
    else {
 		require_once($_SERVER['DOCUMENT_ROOT']."boutique/controllers/article.php");
 		require_once($_SERVER['DOCUMENT_ROOT']).'boutique/controllers/commentaire.php';
+		require_once($_SERVER['DOCUMENT_ROOT']).'boutique/controllers/panier.php';
 		$controller_article = new Controller_Article();
 		$id = intval($_GET['id']);
 		$controller_article->viewArticle($id);
 		$controller_commentaire = new Controller_Commentaire();
 		$controller_commentaire->addComment($id);
+		$controller_panier = new Controller_Panier();
+		$controller_panier->addPanier();
 
 
 	}
@@ -101,11 +106,6 @@ if($controller == '' && $action == '') {
 	$info_profil = $controller_profil->showInfo($id);
 	require_once($_SERVER['DOCUMENT_ROOT']).'/boutique/views/utilisateur/profil_particular.php';
 
-} elseif ($controller == 'contact' && $action == 'send') {
-	require_once($_SERVER['DOCUMENT_ROOT']).'boutique/controllers/mail.php';
-	$controller_mail = new Controller_Mail();
-	$controller_mail->sendMail();
-
 } elseif ($controller == 'about' && $action == 'view') {
 	require_once($_SERVER['DOCUMENT_ROOT']).'boutique/views/a_propos.php';
 
@@ -114,6 +114,30 @@ if($controller == '' && $action == '') {
 
 } elseif ($controller == 'mention' && $action == 'view') {
 	require_once($_SERVER['DOCUMENT_ROOT']).'boutique/views/mention.php';
+
+} elseif ($controller == 'panier' && $action == 'show') {
+	require_once($_SERVER['DOCUMENT_ROOT']).'boutique/controllers/panier.php';
+	/*$controller_panier = new Controller_Panier();
+	$controller_panier->changeQuantity();*/
+	require_once($_SERVER['DOCUMENT_ROOT']).'boutique/views/panier.php';
+
+
+} elseif ($controller == 'panier' && $action == 'delete') {
+	require_once($_SERVER['DOCUMENT_ROOT']).'boutique/controllers/panier.php';
+	$controller_panier = new Controller_Panier();
+	$controller_panier->suppArticle();
+
+} elseif ($controller == 'panier' && $action == 'confirm') {
+	require_once($_SERVER['DOCUMENT_ROOT']).'boutique/controllers/panier.php';
+	$controller_panier = new Controller_Panier();
+	$controller_panier->confirmPanier();
+
+} elseif ($controller == 'commande' & $action == 'view') {
+	require_once($_SERVER['DOCUMENT_ROOT']).'boutique/controllers/commande.php';
+	$controller_commande = new Controller_Commande();
+	$controller_commande->showBillet();
+} elseif ($controller == 'contact' && $action == 'send') {
+	require_once($_SERVER['DOCUMENT_ROOT']).'boutique/views/contact.php';
 }
 
 

@@ -16,6 +16,7 @@ class Model_Article {
 		return $resultat;
 	}
 
+
 	public function listArticleAdmin() 
 	{
 		$query = 'SELECT articles.id_article, articles.nom, articles.imageURL, articles.description, articles.prix, articles.quantite, licences.nom, categories.nom, sous_categories.nom 

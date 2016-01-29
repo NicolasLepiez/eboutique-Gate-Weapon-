@@ -18,10 +18,11 @@ class Model_Utilisateur {
 		return $resultat;
 	}
 
-	public function addUsers($nom, $prenom, $pseudo, $email, $age, $mot_de_passe, $numero_rue, $rue, $ville, $code_postal)
+	public function addUsers($image_profil, $nom, $prenom, $pseudo, $email, $age, $mot_de_passe, $numero_rue, $rue, $ville, $code_postal)
 	{
-		$query = 'INSERT INTO users (nom, prenom, pseudo, email, age, mot_de_passe, numero_rue, rue, ville, code_postal) VALUES (:nom, :prenom, :pseudo, :email, :age, :mot_de_passe, :numero_rue, :rue, :ville, :code_postal);';
+		$query = 'INSERT INTO users (image_profil, nom, prenom, pseudo, email, age, mot_de_passe, numero_rue, rue, ville, code_postal) VALUES (:image_profil, :nom, :prenom, :pseudo, :email, :age, :mot_de_passe, :numero_rue, :rue, :ville, :code_postal);';
 		$table = array(
+				'image_profil' => $image_profil,
 				'nom' => $nom,
 				'prenom' => $prenom,
 				'pseudo' => $pseudo,

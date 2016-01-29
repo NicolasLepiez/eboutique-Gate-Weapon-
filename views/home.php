@@ -15,25 +15,28 @@
 
 		</aside>
 
-		<main class='col-xs-12 col-md-9 main'>
-
+		<main class='col-xs-12 col-md-9 main__home'>
 			<h1> Bienvenue sur Gate-Weapon votre armurerie Geek en ligne ! </h1>
-			<h2> Dernier produits ajoutés </h2>
-			<div class='owl-carousel'>
-				<?php 
-				for ($i=0; $i < 6 ; $i++) { 
-				 	echo '<img src="'.$listArticle[$i]['imageURL'].'">';
-				 } 
+			<div class='home__produit row'>
+				<h2> Dernier produits ajoutés </h2>
+					
+						<?php 
+						for ($i=0; $i < 6 ; $i++) { 
+							echo '<div class=" col-md-4">';
+						 	echo '<img src="'.$listArticle[$i]['imageURL'].'" class="image col-xs-12 col-sm-6 col-md-4 img-responsive">';
+						 	echo '</div>';
+						 } 
 
-				?>
-				
+						?>
+
 			</div>
-			<h2> Produits phares </h2>
-			<div class='owl-carousel owl-theme owl-loaded'>
-				<img src=<?= '"'.$listArticle[0]['imageURL'].'"'; ?> class='owl-item'>
-				<img src=<?= '"'.$listArticle[1]['imageURL'].'"'; ?> class='owl-item'>
-				<img src=<?= '"'.$listArticle[2]['imageURL'].'"'; ?> class='owl-item'>
-				<img src=<?= '"'.$listArticle[3]['imageURL'].'"'; ?> class='owl-item'>
+				
+			<div class='home__produit row'>
+				<h2> Produits phares </h2>
+					<img src=<?= '"'.$listArticle[0]['imageURL'].'"'; ?> class="col-xs-12 col-sm-6 col-md-4 img-responsive" >
+					<img src=<?= '"'.$listArticle[8]['imageURL'].'"'; ?> class="col-xs-12 col-sm-6 col-md-4 img-responsive" >
+					<img src=<?= '"'.$listArticle[5]['imageURL'].'"'; ?> class="col-xs-12 col-sm-6 col-md-4 img-responsive" >
+					<img src=<?= '"'.$listArticle[10]['imageURL'].'"'; ?> class="col-xs-12 col-sm-6 col-md-4 img-responsive" >
 			</div>
 		</main>
 

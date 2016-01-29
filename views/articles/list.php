@@ -25,11 +25,10 @@
 				foreach($listArticle as $article) {
 			 ?>
 			<div class='article__liste col-md-4'>
-				<?php echo '<a href="index.php?c=articles&a=view&id='.$article['id_article'].'" class="article__link"> <img src="'.$article['imageURL'].'"   alt="'.$article['nom'].'" class="image"> </a> <br>';?>
+				<?php echo '<a href="index.php?c=articles&a=view&id='.$article['id_article'].'" class="article__link"> <img src="'.$article['imageURL'].'"    alt="'.$article['nom'].'" class="image img-responsive"> </a> <br>';?>
 				<div class='article__link--text'>
 					<?php echo '<a href="index.php?c=articles&a=view&id='.$article['id_article'].'" class="article__link">'.$article['nom'].' <br> '.$article['prix'].'€ </a>';?>
 				</div>
-				<button class='article__button'> Ajouter au panier </button>
 				
 			</div>
 		<?php

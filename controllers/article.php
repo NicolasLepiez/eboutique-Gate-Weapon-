@@ -15,6 +15,15 @@ class Controller_Article {
 		
 	}
 
+	public function listArticlePanier($id) 
+	{
+		$precision = ' WHERE id_article ='.$id;
+		$article = new Model_Article();
+		$listArticle = $article->listArticle($precision);
+		return $listArticle;
+		
+	}
+
 	public function listArticleCarousel() 
 	{
 		$precision = ' ORDER BY id_article DESC';
@@ -36,7 +45,6 @@ class Controller_Article {
 	public function listArticleByLicence() 
 	{
 		$precision = ' WHERE id_licence ='.$_GET['id'];
-		var_dump($precision);
 		$article = new Model_Article();
 		$listArticle = $article->listArticle($precision);
 		require_once($_SERVER['DOCUMENT_ROOT']).'boutique/views/articles/list_licence.php';
