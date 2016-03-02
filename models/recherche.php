@@ -11,6 +11,10 @@ class Model_Recherche {
 		
 	}
 
+
+	/**
+	 * Fonction permettant la recherche d'objet même en entrant qu'une partie du nom de l'objet
+	 */
 	public function getID($recherche) 
 	{
 		$query = 'SELECT id_article FROM articles WHERE nom LIKE "%'.$recherche.'%";';

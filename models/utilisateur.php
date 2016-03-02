@@ -11,12 +11,20 @@ class Model_Utilisateur {
 		
 	}
 
+	/**
+	 * Fonction permettant de lister les utilisateurs
+	 */
+
 	public function listUsers($precision) 
 	{
 		$query = 'SELECT * FROM users'.$precision.';';
 		$resultat = $this->db->get($query);
 		return $resultat;
 	}
+
+	/**
+	 * Fonction permettant d'ajouter un utilisateur
+	 */
 
 	public function addUsers($image_profil, $nom, $prenom, $pseudo, $email, $age, $mot_de_passe, $numero_rue, $rue, $ville, $code_postal)
 	{
@@ -37,12 +45,20 @@ class Model_Utilisateur {
 		$this->db->execute($query, $table);
 	}
 
+	/**
+	 * Fonction permettant de check les passwords
+	 */
+
 	public function checkPassword($password)
 	{
 		$query = 'SELECT EXISTS(SELECT id_users FROM users WHERE mot_de_passe=\''.$password.'\');';
 		$resultat = $this->db->get($query);
 		return $resultat;
 	}
+
+	/**
+	 * Fonction permettant de check les pseudos
+	 */
 
 	public function checkPseudo($pseudo)
 	{
@@ -51,12 +67,20 @@ class Model_Utilisateur {
 		return $resultat;
 	}
 
+	/**
+	 * Fonction permettant de recuperer les info d'un seul utilisateur
+	 */
+
 	public function getUserInfo($pseudo)
 	{
 		$query = 'SELECT id_users, pseudo, email, admin FROM users WHERE pseudo=\''.$pseudo.'\';';
 		$resultat = $this->db->get($query);
 		return $resultat;
 	}
+
+	/**
+	 * Fonction permettant de récupérer toute la liste des utilisateurs
+	 */
 
 	public function listAllUsers() 
 	{
@@ -65,6 +89,10 @@ class Model_Utilisateur {
 		return $resultat;
 	}	
 
+	/**
+	 * Fonction permettant d'afficher le profil de la session en cours
+	 */
+
 	public function checkProfil()
 	{
 		$query = 'SELECT * FROM users WHERE id_users='.$_SESSION['id_users'].';';
@@ -72,6 +100,9 @@ class Model_Utilisateur {
 		return $resultat;
 	}
 
+	/**
+	 * Fonction qui vérifie si un utilisateur est un administrateur
+	 */
 
 	public function checkAdmin()
 	{
@@ -80,6 +111,10 @@ class Model_Utilisateur {
 		return $resultat;
 	}
 
+
+	/**
+	 * Fonction permettant de supprimer un utilisateur
+	 */
 	public function suppUser()
 	{
 		$query = 'DELETE FROM users WHERE id_users ='.$_GET['id'].';';

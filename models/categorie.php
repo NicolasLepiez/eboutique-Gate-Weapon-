@@ -9,6 +9,10 @@ class Model_Categorie {
 		
 	}
 
+
+	/**
+	 * Fonction permettant d'ajouter une catégorie ou une licence
+	 */
 	public function addCategorieLicence($precision, $nom, $imageURL)
 	{
 		$query = 'INSERT INTO '.$precision.'(imageURL, nom) VALUES (:imageURL, :nom);';
@@ -18,6 +22,10 @@ class Model_Categorie {
 		$this->db->execute($query, $table);
 	}
 
+
+	/**
+	 * Fonction permettant d'ajouter une sous-categorie
+	 */
 	public function AddSousCategorie($nom, $categorie)
 	{
 		$query = 'INSERT INTO sous_categories (nom, id_categorie) VALUES (:nom, :id_categorie);';

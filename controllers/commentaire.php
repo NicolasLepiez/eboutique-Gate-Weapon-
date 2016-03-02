@@ -2,6 +2,10 @@
 require_once($_SERVER['DOCUMENT_ROOT'].'boutique/models/commentaire.php'); 	
 class Controller_Commentaire {
 
+
+	/**
+	 * Fonction permmettant d'afficher tous les commentaires
+	 */
 	public function listComment($id)
 	{
 		$comment = new Model_Commentaire();
@@ -9,6 +13,10 @@ class Controller_Commentaire {
 		//var_dump($listComment);
 		return $listComment;
 	}
+
+	/**
+	 * Fonction permettant d'ajouter un commentaire
+	 */
 
 	public function addComment($id)
 	{

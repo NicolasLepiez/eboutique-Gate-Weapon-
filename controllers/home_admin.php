@@ -3,7 +3,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'boutique/models/article.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/boutique/models/utilisateur.php');
 class Controller_Admin {
 	/**
-	 * Fonction permettant de lister les articles
+	 * Fonction permettant de lister les articles sur la page home des admins
 	 */
 
 	public function listLastArticleUser() 

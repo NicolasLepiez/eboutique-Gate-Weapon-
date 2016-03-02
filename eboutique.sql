@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 29 Janvier 2016 à 10:18
+-- Généré le :  Ven 29 Janvier 2016 à 14:47
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   KEY `FK_articles_id_licenses` (`id_licence`),
   KEY `FK_articles_id_categorie` (`id_categorie`),
   KEY `FK_articles_id_sous_categorie` (`id_sous_categorie`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
 
 --
 -- Contenu de la table `articles`
@@ -51,12 +51,12 @@ INSERT INTO `articles` (`id_article`, `nom`, `imageURL`, `description`, `prix`, 
 (2, 'Lame secrete', 'http://media.begeek.fr/2012/07/Lame-secr%C3%A8te-02.jpg', 'Lame utilisé par tous les assassins. Tres discretes elle permet d''effectuer des assassinat sans attirer l''attention.', 50, 2, 8, 1, 2),
 (3, 'Sabre Laser', 'http://www.toutesvosrepliques.com/boutique/images_produits/sabrea-z.jpg', 'SABRE LASER', 150, 1, 9, 1, 2),
 (5, 'Blaster Laser', 'http://vignette4.wikia.nocookie.net/fr.starwars/images/a/a2/Pistolet_blaster_lourd_DL-44.jpg/revision/latest?cb=20151003191219', 'Bla bla bla', 150, 15, 9, 2, 4),
-(6, 'Bouclier Hylien', 'http://ekladata.com/WlIvisem79konrw8PGT3hxiFQpY.jpg', 'Bouclier de Link', 200, 0, 1, 3, 11),
+(6, 'Bouclier Hylien', 'http://ekladata.com/WlIvisem79konrw8PGT3hxiFQpY.jpg', 'Bouclier de Link', 200, 0, 1, 3, 9),
 (7, 'Épée de Trafalgar Law', 'http://litbimg.rightinthebox.com/images/384x384/201303/fhgqhi1364539504725.jpg', 'L''épée du capitaine Trafalgar Law', 70, 4, 2, 1, 2),
 (8, 'Épée de Roronoa Zoro', 'http://pmcdn.priceminister.com/photo/one-piece-3-katanas-zoro-shusui-wado-kitetsu-epee-sabre-962513628_ML.jpg', 'Les trois épée de Roronoa Zoro le chasseur de pirate et membre de l''équipage du chapeau de paille', 300, 0, 2, 1, 2),
 (9, 'Épée-canne de Brook', 'http://one.nbstatic.fr/uploaded/20151023/2917229/__00001_Canne-epee-BROOK-ONE-PIECE-MANGA.JPG', 'La fameuse épée-canne de Brook, le membre squelette de l''équipage du chapeau de paille', 50, 50, 2, 1, 2),
 (10, 'Shuriken', 'http://www.toutesvosrepliques.com/boutique/images_produits/zF6633_1.jpg', 'Shuriken utilisé par les ninja de tous les villages.\r\n\r\nLots de 10 shuriken.', 10, 200, 3, 2, 6),
-(11, 'Kunai', 'http://www.kamehashop.fr/66-94-large_default/naruto-kunai-arme-de-ninja.jpg', 'Kunai utilisé par les ninjas venant de tous les villages', 10, 200, 3, 2, 6),
+(11, 'Kunai', 'http://www.kamehashop.fr/66-94-large_default/naruto-kunai-arme-de-ninja.jpg', 'Kunai utilisé par les ninjas venant de tous les villages', 10, 180, 3, 2, 6),
 (12, 'Hache Tomahawk ', 'http://www.toutesvosrepliques.com/boutique/images_produits/zs9488a1.jpg', 'Réplique du Tomahawk  utilisé par Connor Kenway inspiré du jeu Assassin''s Creed 3.', 40, 1, 8, 1, 2),
 (13, 'Epée d''Altair', 'http://www.toutesvosrepliques.com/boutique/images_produits/w5832i1.jpg', 'Reproduction de l''épée d''Altair inspiré du jeu vidéo &quot;Assassin''s Creed&quot;', 60, 50, 8, 1, 2),
 (14, 'Couteaux à lancer d''Altair ', 'http://www.toutesvosrepliques.com/boutique/images_produits/p1020469-z.jpg', 'Reproduction des couteaux à lancer d''Altair inspiré du célèbre jeu vidéo &quot;Assassins Creed&quot;. Jeu de 2 couteaux. ', 20, 80, 8, 2, 6),
@@ -75,7 +75,9 @@ INSERT INTO `articles` (`id_article`, `nom`, `imageURL`, `description`, `prix`, 
 (27, 'Baguette Lucius Malfoy', 'http://www.toutesvosrepliques.com/boutique/images_produits/8208-z.jpg', 'Réplique en résine peinte à la main de la baguette de Lucius Malfoy. ', 35, 20, 11, 2, 11),
 (28, 'Baguette bronze Harry Potter', 'http://www.toutesvosrepliques.com/boutique/images_produits/8501-z.jpg', 'Réplique en bronze de la baguette de Harry Potter, livrée en luxueux présentoir bois.', 175, 20, 11, 2, 11),
 (29, 'Baguette Severus Snape', 'http://ecx.images-amazon.com/images/I/514weNNTQKL._SX425_.jpg', 'Cette baguette est une réplique en résine de la baguette du Professeur Snape. ', 35, 20, 11, 2, 11),
-(30, 'Epée Gryffondor', 'http://static.fnac-static.com/multimedia/Images/FR/MC/3d/e6/e1/14804541/1507-1.jpg#3c57d31d-8cef-4b3e-8e7a-813044119ded', 'Réplique à l''échelle 1/1 taille env. 85 cm de l''épée de Godric Gryffondor, finement détaillée avec cristaux (artificiels) sertis. ', 220, 5, 11, 1, 2);
+(30, 'Epée Gryffondor', 'http://static.fnac-static.com/multimedia/Images/FR/MC/3d/e6/e1/14804541/1507-1.jpg#3c57d31d-8cef-4b3e-8e7a-813044119ded', 'Réplique à l''échelle 1/1 taille env. 85 cm de l''épée de Godric Gryffondor, finement détaillée avec cristaux (artificiels) sertis. ', 220, 5, 11, 1, 2),
+(31, 'Chapeau de paille de Luffy', 'http://jeveuxseduire.fr/wp-content/uploads/2015/09/draguer-le-chapeau-paille-luffy-taille-reelle_2.jpg', 'Chapeau de paille de Monkey D Luffy qui lui a été donné par Shanks le Roux lui même', 10000, 1, 2, 4, 12),
+(36, 'azery', 'aezr', 'lambda', 20, 0, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -115,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `commande` (
   `id_users` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_commande`),
   KEY `FK_commande_id_users` (`id_users`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
 -- Contenu de la table `commande`
@@ -126,7 +128,8 @@ INSERT INTO `commande` (`id_commande`, `numero_commande`, `descriptif`, `date_co
 (17, 1433, 'Epée de Kirito Dark Répulser Sword Art Online : 1, Epée Asuna : 1', '2016-01-27', 195, 3),
 (18, 5542, 'Master Sword : 490, Épée de Roronoa Zoro : 30', '2016-01-28', 67800, 3),
 (19, 3862, 'Master Sword : 1, Bouclier Hylien : 21', '2016-01-28', 4320, 3),
-(20, 4156, 'Épée de Trafalgar Law : 30, Katana Zanpakuto Zaraki Kenpachi : 5, EPEE KIRITO Elucidator Sword Art Online : 10, Baguette lumineuse Voldemort  : 3', '2016-01-29', 3540, 4);
+(20, 4156, 'Épée de Trafalgar Law : 30, Katana Zanpakuto Zaraki Kenpachi : 5, EPEE KIRITO Elucidator Sword Art Online : 10, Baguette lumineuse Voldemort  : 3', '2016-01-29', 3540, 4),
+(21, 4458, 'Kunai : 20, azery : 1', '2016-01-29', 220, 3);
 
 -- --------------------------------------------------------
 
@@ -143,14 +146,15 @@ CREATE TABLE IF NOT EXISTS `commentaire` (
   PRIMARY KEY (`id_commentaire`),
   KEY `FK_commentaire_id_article` (`id_article`),
   KEY `FK_commentaire_id_users` (`id_users`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `commentaire`
 --
 
 INSERT INTO `commentaire` (`id_commentaire`, `titre_commentaire`, `commentaire`, `id_article`, `id_users`) VALUES
-(1, 'Bonne état', 'Reçu en très bonne état, et dans les temps, très bonne qualité', 1, 1);
+(1, 'Bonne état', 'Reçu en très bonne état, et dans les temps, très bonne qualité', 1, 1),
+(2, 'Bon état', 'Reçu dans les temps en très bonne état', 6, 11);
 
 -- --------------------------------------------------------
 
@@ -207,7 +211,7 @@ CREATE TABLE IF NOT EXISTS `sous_categories` (
   `id_categorie` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_sous_categorie`),
   KEY `FK_sous_categories_id_categorie` (`id_categorie`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Contenu de la table `sous_categories`
@@ -220,11 +224,12 @@ INSERT INTO `sous_categories` (`id_sous_categorie`, `nom`, `id_categorie`) VALUE
 (4, 'Armes à feu', 2),
 (5, 'Arcs', 2),
 (6, 'Armes de jets', 2),
-(8, 'Colliers', 4),
-(9, 'Anneaux', 4),
-(10, 'Bracelets', 4),
-(11, 'Lourd', 3),
-(12, 'Baguette', 2);
+(7, 'Colliers', 4),
+(8, 'Anneaux', 4),
+(9, 'Bracelets', 4),
+(10, 'Lourd', 3),
+(11, 'Baguette', 2),
+(12, 'Chapeau', 4);
 
 -- --------------------------------------------------------
 
@@ -247,7 +252,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `ville` varchar(25) DEFAULT NULL,
   `code_postal` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_users`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Contenu de la table `users`
@@ -261,7 +266,9 @@ INSERT INTO `users` (`id_users`, `image_profil`, `nom`, `prenom`, `pseudo`, `adm
 (5, 'https://pixabay.com/static/uploads/photo/2012/04/26/19/43/profile-42914_960_720.png', 'Truc', 'Much', 'TrucMuch', 0, 'truc@much.com', 20, 'f1bf487dfacd62a83348e53dcc370b8d1128e98c', 8, 'rue des trucs', 'Rennes', 35000),
 (6, 'https://pixabay.com/static/uploads/photo/2012/04/26/19/43/profile-42914_960_720.png', 'azerty', 'ytreza', 'azertyu', 0, 'azerty@azerty.com', 20, '9cf95dacd226dcf43da376cdb6cbba7035218921', 5, 'rue d''azerty', 'Caen', 14000),
 (7, 'https://pixabay.com/static/uploads/photo/2012/04/26/19/43/profile-42914_960_720.png', 'Toto', 'Tata', 'Tota', 0, 'tota@toto.com', 50, '96543c464bc8f00d27413fcb1965984e271915b3', 5, 'rue des toto', 'ToTown', 80502),
-(9, 'https://pixabay.com/static/uploads/photo/2012/04/26/19/43/profile-42914_960_720.png', 'Lambert', 'Tom', 'Tom-san', 0, 'tom@gmail.com', 20, '1d5f29d807ee33b3f42481108436c7026584cb3d', 8, 'rue des toms', 'TomTown', 14320);
+(9, 'https://pixabay.com/static/uploads/photo/2012/04/26/19/43/profile-42914_960_720.png', 'Lambert', 'Tom', 'Tom-san', 0, 'tom@gmail.com', 20, '1d5f29d807ee33b3f42481108436c7026584cb3d', 8, 'rue des toms', 'TomTown', 14320),
+(10, 'https://pixabay.com/static/uploads/photo/2012/04/26/19/43/profile-42914_960_720.png', '', '', '', 0, '', 0, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 0, '', '', 0),
+(11, 'https://pixabay.com/static/uploads/photo/2012/04/26/19/43/profile-42914_960_720.png', 'azerty', 'azerty', 'tata', 0, 'toto@gmail.com', 20, '0b9c2625dc21ef05f6ad4ddf47c5f203837aa32c', 5, 'rue de toto', 'Rennes', 35000);
 
 --
 -- Contraintes pour les tables exportées

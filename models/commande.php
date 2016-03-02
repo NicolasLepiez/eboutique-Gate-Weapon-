@@ -9,6 +9,10 @@ class Model_Commande {
 		
 	}
 
+
+	/**
+	 * Fonction permettant de créer un nouveau billet de commande
+	 */
 	public function newBillet($numero_commande, $descriptif, $prix_commande, $id_users)
 
 	{
@@ -22,6 +26,10 @@ class Model_Commande {
 		$this->db->execute($query, $table);
 	}
 
+
+	/**
+	 * Fonction permettant de récupérer les infos sur les billets de commande
+	 */
 	public function getBillet($id)
 	{
 		$query = 'SELECT * FROM commande WHERE id_users = '.$id;

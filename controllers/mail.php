@@ -1,6 +1,10 @@
 <?php 
 class Controller_Mail{
 
+
+	/**
+	 * Fonction permettant d'envoyer un mail grâce au formulaire de contact
+	 */
 	public function sendMail()
 	{
 

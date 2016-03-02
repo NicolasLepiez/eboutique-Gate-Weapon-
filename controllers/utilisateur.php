@@ -3,6 +3,10 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/boutique/models/utilisateur.php');
 
 class Controller_Utilisateur {
 
+
+	/**
+	 * Fonction permettant l'inscription
+	 */
 	public function newUsers()
 	{
 		if (empty($_POST)) {
@@ -55,6 +59,10 @@ class Controller_Utilisateur {
 		}
 	}
 
+	/**
+	 * Fonction permettant la connexion
+	 */
+
 	public function connect()
 	{
 		$error = '';
@@ -96,11 +104,19 @@ class Controller_Utilisateur {
  
 	}
 
+	/**
+	 * Fonction permettant la deconnexion
+	 */
+
 	public function deconnect()
 	{
 			session_destroy();
 			echo "<script type='text/javascript'>document.location.replace('index.php');</script>";
 	}
+
+	/**
+	 * Fonction permettant de lister les utilisateurs pour l'administrateur
+	 */
 
 	public function listUsersAdmin() 
 	{
@@ -111,6 +127,10 @@ class Controller_Utilisateur {
 		
 	}
 
+	/**
+	 * Fonction permettant de lister les utilisateurs pour les autres utilisateurs
+	 */
+
 	public function listAllUsers() 
 	{
 		$users = new Model_Utilisateur();
@@ -118,6 +138,10 @@ class Controller_Utilisateur {
 		require_once($_SERVER['DOCUMENT_ROOT']).'boutique/views/utilisateur/list_users.php';
 		
 	}
+
+	/**
+	 * Fonction permettant de supprimer des utilisateurs
+	 */
 
 	public function suppUser()
 	{

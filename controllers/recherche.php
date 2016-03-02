@@ -2,6 +2,11 @@
 require_once($_SERVER['DOCUMENT_ROOT'].'boutique/models/article.php'); 	
 class Controller_Recherche {
 
+
+	/**
+	 * Fonction qui devait permettre de faire une recherche par licence, categorie et sous categorie par le biais de checkbox
+	 */
+
 	/*public function rechercheLicence()
 	{
 		if (!empty($_POST)) {
@@ -62,6 +67,10 @@ class Controller_Recherche {
 
 		}
 	}*/
+
+	/**
+	 * Fonction permettant de faire une recherche par nom
+	 */
 
 	public function recherchePrecise()
 	{

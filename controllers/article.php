@@ -15,6 +15,10 @@ class Controller_Article {
 		
 	}
 
+	/**
+	 * Fonction permettant de lister les articles pour le panier
+	 */
+
 	public function listArticlePanier($id) 
 	{
 		$precision = ' WHERE id_article ='.$id;
@@ -24,7 +28,11 @@ class Controller_Article {
 		
 	}
 
-	public function listArticleCarousel() 
+	/**
+	 * Fonction permettant de lister les articles pour la page home
+	 */
+
+	public function listArticleHome() 
 	{
 		$precision = ' ORDER BY id_article DESC';
 		$article = new Model_Article();
@@ -33,6 +41,10 @@ class Controller_Article {
 		
 	}
 
+	/**
+	 * Fonction permettant de lister les articles pour l'administrateur
+	 */
+
 	public function listArticleAdmin() 
 	{
 		$article = new Model_Article();
@@ -40,6 +52,10 @@ class Controller_Article {
 		require_once($_SERVER['DOCUMENT_ROOT']).'boutique/admin/views/liste_article.php';
 		
 	}
+
+	/**
+	 * Fonction permettant de lister les articles par licence
+	 */
 
 
 	public function listArticleByLicence() 
@@ -50,6 +66,10 @@ class Controller_Article {
 		require_once($_SERVER['DOCUMENT_ROOT']).'boutique/views/articles/list_licence.php';
 		
 	}
+
+	/**
+	 * Fonction permettant de lister les articles par catégorie
+	 */
 
 
 	public function listArticleByCategorie() 
@@ -62,6 +82,9 @@ class Controller_Article {
 		
 	}
 
+	/**
+	 * Fonction permettant de lister les licences
+	 */
 
 	public function listLicence()
 	{
@@ -71,6 +94,9 @@ class Controller_Article {
 		return $listLicence;
 	}
 
+	/**
+	 * Fonction permettant de lister les catégories
+	 */
 
 	public function listCategorie()
 	{
@@ -80,6 +106,10 @@ class Controller_Article {
 		return $listCategorie;
 	}
 
+	/**
+	 * Fonction permettant de lister les sous catégories
+	 */
+
 	public function listSousCategorie()
 	{
 		$sous_categories = new Model_Article();
@@ -87,6 +117,10 @@ class Controller_Article {
 		//var_dump($listLicence);
 		return $listSousCategorie;
 	}
+
+	/**
+	 * Fonction permettant de voir un articles en particulier
+	 */
 
 
 	public function viewArticle($id) 
@@ -96,6 +130,10 @@ class Controller_Article {
 		//var_dump($articleDetails);
 		require_once($_SERVER['DOCUMENT_ROOT'].'boutique/views/articles/view.php');
 	}
+
+	/**
+	 * Fonction permettant d'ajouter des articles
+	 */
 
 	public function addArticle()
 	{
@@ -118,12 +156,20 @@ class Controller_Article {
 		}
 	}
 
+	/**
+	 * Fonction permettant de supprimer dans articles
+	 */
+
 	public function suppArticle()
 	{
 		$supp = new Model_Article();
 		$suppression = $supp->suppArticle();
-		require_once($_SERVER['DOCUMENT_ROOT']).'boutique/admin/views/supp.php';
+		require_once($_SERVER['DOCUMENT_ROOT']).'boutique/admin/views/article_sup.php';
 	}
+
+	/**
+	 * Fonction permettant de modifier les articles
+	 */
 
 	public function changeArticle()
 	{

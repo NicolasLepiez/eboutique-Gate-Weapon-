@@ -2,16 +2,17 @@
 	<div class="row">
 
 		<aside class='col-xs-12 col-md-3 aside__margin'>
-						<?php 
-						require_once($_SERVER['DOCUMENT_ROOT']).'boutique/controllers/recherche.php';
-						?>
-						<form action='index.php?c=articles&a=recherche' method='post'>
-							<input type='text' name='recherche' class='recherche' placeholder='votre recherche'> <br>
-							<input type='submit' class='button' name='rechercher' value='rechercher_nom'>
-						</form>
+				<?php 
+				require_once($_SERVER['DOCUMENT_ROOT']).'boutique/controllers/recherche.php';
+				?>
+				<p class='aside__title'> Effectuez une recherche par nom ! </p>
+				<form action='index.php?c=articles&a=recherche' method='post'>
+					<input type='text' name='recherche' class='recherche' placeholder='votre recherche'> <br>
+					<input type='submit' class='button' name='rechercher' value='rechercher nom'>
+				</form>
 
-						<?php 
-						?>
+				<?php 
+				?>
 
 		</aside>
 

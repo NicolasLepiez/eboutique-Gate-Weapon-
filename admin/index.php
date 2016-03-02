@@ -63,7 +63,4 @@ if ($controller == '' && $action == '') {
 	
 	
 }
-
-
-//require_once($_SERVER['DOCUMENT_ROOT']).'boutique/views/footer.php';
 ?>

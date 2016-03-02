@@ -22,7 +22,7 @@ if (!empty($_GET['t'])){
 if($controller == '' && $action == '') {
 	require_once($_SERVER['DOCUMENT_ROOT']).'boutique/controllers/article.php';
 	$controller_article = new Controller_Article();
-	$controller_article->listArticleCarousel();
+	$controller_article->listArticleHome();
 
 	
 } elseif ($controller == 'articles' && $action == 'list' && $type == '') {

@@ -100,6 +100,13 @@ aside {
     width: 15%;
 	
 }
+
+@media screen (max-width: 540px) {
+	.aside__margin {
+		position: relative;
+	}
+}
+
 .aside__title {
 	font-size: 15px;
 	margin-top: 20px;
@@ -300,6 +307,18 @@ input {
 	width: 60%;
 }
 
+@media screen and (max-width: 540px) {
+	.main {
+		margin-left: 0px;
+	}
+	.main__only {
+		margin-left: 0px;
+	}
+	.main__home {
+		margin-left: 0px;
+	}
+}
+
 .main__description {
 	padding-right: 50px;
 }
@@ -315,6 +334,7 @@ input {
 }
 
 
+
 .main__only {
 	background-color: white;
 	border-radius: 10px;
@@ -325,9 +345,9 @@ input {
 	width: 60%;
 }
 
+
 .menu {
 	background-color: #02658C;
-	display: block;
 	list-style-type: none;
 	margin: 0;
 	overflow: visible;

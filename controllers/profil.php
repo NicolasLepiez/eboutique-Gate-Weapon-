@@ -3,6 +3,10 @@ require_once($_SERVER['DOCUMENT_ROOT']).'/boutique/models/utilisateur.php';
 require_once($_SERVER['DOCUMENT_ROOT'].'/boutique/models/profil.php');
 class Controller_Profil {
 
+
+	/**
+	 * Fonction qui permet d'afficher les info d'un utilisateur
+	 */
 	public function showInfo($id)
 	{
 		$profil = new Model_Profil();
@@ -10,6 +14,10 @@ class Controller_Profil {
 		return $info_profil;
 		
 	}
+
+	/**
+	 * Fonction permettant de modifier les infos d'un profil
+	 */
 
 	public function changeInfo()
 	{
@@ -28,7 +36,6 @@ class Controller_Profil {
 
 			$user_info = new Model_Utilisateur();
 			$user_check = $user_info->checkProfil();
-			//var_dump($user_check);
 
 			if (empty($image_profil)) {
 				$image_profil = $user_check[0]['image_profil'];

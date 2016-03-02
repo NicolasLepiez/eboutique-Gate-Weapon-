@@ -9,6 +9,9 @@ class Model_Panier {
 		
 	}
 
+	/**
+	 * Fonction permettant de modifier la quantite d'un objet en fonction de la quantite achetée
+	 */
 
 	public function updateQuantity($newQuantity, $id)
 	{
@@ -20,6 +23,9 @@ class Model_Panier {
 
 	}
 
+	/**
+	 * Fonction permettant de lister les articles du panier
+	 */
 	public function listArticlePanier($precision) 
 	{
 		$query = 'SELECT * FROM articles'.$precision.';';

@@ -21,7 +21,7 @@
 
 					<ul class="menu col-xs-12 ">
 						<li class='col-sm-2'>
-							<a href='home' >GATE-WEAPON</a>
+							<a href='index.php' >GATE-WEAPON</a>
 						</li>
 
 						<li class='col-sm-2'> 
@@ -75,12 +75,12 @@
 							</li>
 						<?php
 						}else {
-							echo "<li class='col-sm-2'> <a href='connect'>CONNEXION</a>";
+							echo "<li class='col-sm-2'> <a href='index.php?c=connexion&a=in'>CONNEXION</a>";
 						}
 						?>
 							<ul>
-								<li> <a href= 'connect'> Connexion </a> </li>
-								<li> <a href= 'signin'> Inscription </a> </li>
+								<li> <a href= 'index.php?c=connexion&a=in'> Connexion </a> </li>
+								<li> <a href= 'index.php?c=inscription&a=add'> Inscription </a> </li>
 							</ul>
 						</li>					
 					
